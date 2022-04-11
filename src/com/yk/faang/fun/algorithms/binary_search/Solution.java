@@ -9,7 +9,7 @@ package com.yk.faang.fun.algorithms.binary_search;
  *
  * You must write an algorithm with O(log n) runtime complexity.
  */
-public class Solution {
+class Solution {
 
   public int search(int[] nums, int target) {
     if (nums.length == 1) {

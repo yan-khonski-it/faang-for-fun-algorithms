@@ -6,7 +6,7 @@ package com.yk.faang.fun.algorithms.rotate_image;
  * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly.
  * DO NOT allocate another 2D matrix and do the rotation.
  */
-public class Solution1 {
+class Solution1 {
 
   // This solution is not optimal. It uses a buffer of size n.
   // Use layers. Copy first row of the layer into a buffer.

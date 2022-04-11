@@ -27,7 +27,7 @@ Example 3
 growthRates = [1.01, 1.02]
 output = 1047
 */
-public class Main {
+class Main {
 
   private static final double BILLION_USERS = 1_000_000_000;
 

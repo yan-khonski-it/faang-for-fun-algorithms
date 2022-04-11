@@ -9,7 +9,7 @@ package com.yk.faang.fun.algorithms.borders_in_sorted_array;
  * If target is not found in the array, return [-1, -1].
  * You must write an algorithm with O(log n) runtime complexity.
  */
-public class Solution {
+class Solution {
 
   private static final int[] NOT_FOUND = new int[]{-1, -1};
 

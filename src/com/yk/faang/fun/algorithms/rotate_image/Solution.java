@@ -9,7 +9,7 @@ package com.yk.faang.fun.algorithms.rotate_image;
  * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly.
  * DO NOT allocate another 2D matrix and do the rotation.
  */
-public class Solution {
+class Solution {
 
   // Transform the matrix, so rows become columns and columns become rows.
   // Swap row[i] with row[n - 1 - i].

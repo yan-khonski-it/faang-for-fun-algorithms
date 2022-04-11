@@ -13,35 +13,7 @@ package com.yk.faang.fun.algorithms.search_in_sorted_array_of_unknown_size;
  * We do not know the size of the array, and it can be large. In this case, each new window will be larger.
  * Once we hit the boundary of the array, we can search the element inside the window.
  */
-public class Solution {
-
-  public static void main(String[] args) {
-    Solution solution = new Solution();
-
-    UnknownSizedArray nums01 = UnknownSizedArray.of(1);
-    int target01 = 1;
-    int result01 = solution.search(nums01, target01);
-    System.out.println("result01: " + result01);
-
-    int target02 = 2;
-    int result02 = solution.search(nums01, target02);
-    System.out.println("result02: " + result02);
-
-    UnknownSizedArray nums1 = UnknownSizedArray.of(1, 2, 3, 4);
-    int target1 = 3;
-    int result1 = solution.search(nums1, target1);
-    System.out.println("result1: " + result1);
-
-    UnknownSizedArray nums2 = UnknownSizedArray.of(
-        1, 2, 3, 4, 6, 9, 11, 14, 18, 22,
-        24, 31, 36, 38, 41, 44, 47, 300, 1000, 2022,
-        2033, 2044, 2099, 3010, 3011, 3012
-    );
-
-    int target2 = 44;
-    int result2 = solution.search(nums2, target2);
-    System.out.println("result2: " + result2 + " | " + nums2);
-  }
+class Solution {
 
   public int search(UnknownSizedArray nums, int target) {
     if (nums == null) {
@@ -80,6 +52,34 @@ public class Solution {
     } else {
       return -1;
     }
+  }
+
+  public static void main(String[] args) {
+    Solution solution = new Solution();
+
+    UnknownSizedArray nums01 = UnknownSizedArray.of(1);
+    int target01 = 1;
+    int result01 = solution.search(nums01, target01);
+    System.out.println("result01: " + result01);
+
+    int target02 = 2;
+    int result02 = solution.search(nums01, target02);
+    System.out.println("result02: " + result02);
+
+    UnknownSizedArray nums1 = UnknownSizedArray.of(1, 2, 3, 4);
+    int target1 = 3;
+    int result1 = solution.search(nums1, target1);
+    System.out.println("result1: " + result1);
+
+    UnknownSizedArray nums2 = UnknownSizedArray.of(
+        1, 2, 3, 4, 6, 9, 11, 14, 18, 22,
+        24, 31, 36, 38, 41, 44, 47, 300, 1000, 2022,
+        2033, 2044, 2099, 3010, 3011, 3012
+    );
+
+    int target2 = 44;
+    int result2 = solution.search(nums2, target2);
+    System.out.println("result2: " + result2 + " | " + nums2);
   }
 
   static class UnknownSizedArray {
