@@ -1,8 +1,5 @@
 package com.yk.faang.fun.algorithms.search_in_sorted_array_of_unknown_size;
 
-import java.util.List;
-import java.util.stream.Stream;
-
 /**
  * https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/
  *

@@ -11,6 +11,27 @@ package com.yk.faang.fun.algorithms.binary_search;
  */
 public class Solution {
 
+  public int search(int[] nums, int target) {
+    if (nums.length == 1) {
+      return nums[0] == target ? 0 : -1;
+    }
+
+    int minIndex = 0;
+    int maxIndex = nums.length - 1;
+    while (minIndex <= maxIndex) {
+      int middleIndex = (maxIndex + minIndex) / 2;
+      if (nums[middleIndex] == target) {
+        return middleIndex;
+      } else if (nums[middleIndex] < target) {
+        minIndex = middleIndex + 1;
+      } else {
+        maxIndex = middleIndex - 1;
+      }
+    }
+
+    return -1;
+  }
+
   public static void main(String[] args) {
     Solution solution = new Solution();
 
@@ -23,37 +44,6 @@ public class Solution {
     int target2 = 999;
     int result2 = solution.search(array2, target2);
     System.out.println("result2: " + result2);
-  }
-
-  public int search(int[] nums, int target) {
-    if (nums == null || nums.length == 0) {
-      return -1;
-    }
-
-    if (nums.length == 1) {
-      return nums[0] == target ? 0 : -1;
-    }
-
-    int minIndex = 0;
-    int maxIndex = nums.length - 1;
-    while (minIndex < maxIndex - 1) {
-      int middleIndex = minIndex + (maxIndex - minIndex) / 2;
-      if (nums[middleIndex] == target) {
-        return middleIndex;
-      } else if (nums[middleIndex] < target) {
-        minIndex = middleIndex;
-      } else {
-        maxIndex = middleIndex;
-      }
-    }
-
-    if (nums[minIndex] == target) {
-      return minIndex;
-    } else if (nums[maxIndex] == target) {
-      return maxIndex;
-    } else {
-      return -1;
-    }
   }
 }
 
