@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 
-<!-- https://github.com/pmd/pmd/blob/master/pmd-java/src/main/resources/rulesets/java/basic.xml -->
-<!-- https://pmd.github.io/pmd/pmd_rules_java_codestyle.html#shortvariable -->
-<ruleset
-  name="custom-ruleset"
-  xmlns="http://pmd.sourceforge.net/ruleset/2.0.0">
+<ruleset name="custom-ruleset">
+
   <description>
     The Basic ruleset contains a collection of good practices which should be followed.
   </description>
@@ -13,7 +10,21 @@
   <rule ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor"/>
   <rule ref="category/java/bestpractices.xml/UnusedLocalVariable"/>
   <rule ref="category/java/bestpractices.xml/UnusedPrivateField"/>
-  <rule ref="category/java/codestyle.xml/DuplicateImports"/>
-  <rule ref="category/java/codestyle.xml/ShortMethodName"/>
-  <rule ref="category/java/codestyle.xml/ShortVariable"/>
+  <rule ref="category/java/codestyle.xml/ShortMethodName">
+    <properties>
+      <property name="minimum" value="2"/>
+    </properties>
+  </rule>
+
+  <!-- https://github.com/pmd/pmd/blob/master/pmd-java/src/main/resources/rulesets/java/basic.xml -->
+  <!-- https://github.com/pmd/pmd/blob/master/pmd-core/src/main/resources/rulesets/internal/all-java.xml -->
+  <rule ref="category/java/bestpractices.xml">
+    <exclude name="UseVarargs"/>
+    <exclude name="MethodReturnsInternalArray"/>
+  </rule>
+
+  <!-- https://maven.apache.org/plugins/maven-pmd-plugin/examples/usingRuleSets.html -->
+  <rule ref="rulesets/java/maven-pmd-plugin-default.xml">
+  </rule>
+
 </ruleset>
