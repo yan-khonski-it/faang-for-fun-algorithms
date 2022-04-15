@@ -7,6 +7,8 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * 744. Find Smallest Letter Greater Than Target
  * <p>
+ * https://docs.google.com/document/d/19RAnwqCDxybHofj_uBObw66jAgUAWCeGxbUxOR1gilA/edit?usp=sharing
+ * <p>
  * Given a characters array letters that is sorted in non-decreasing order and a character target, return the smallest
  * character in the array that is larger than target.
  * <p>
