@@ -14,30 +14,24 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class Solution {
 
-  // sqrt <= x / 2, x >= 4
   // use only integer, so we replace a * a == x, with division, x / a == a
+  // sqrt <= x / 2
   public int mySqrt(int x) {
     // Simple cases
-    if (x == 0) {
-      return 0;
-    } else if (x == 1) {
-      return 1;
-    } else if (x == 3) {
-      return 1;
-    } else if (x == 4) {
-      return 2;
+    if (x < 2) {
+      return x;
     }
 
-    int start = 1;
+    int start = 2;
     int end = x / 2;
 
-    while (start < end - 1) {
+    while (start <= end) {
       int middle = start + (end - start) / 2;
       int division = x / middle;
       if (division == middle) {
         return middle;
       } else if (division > middle) {
-        start = middle;
+        start = middle + 1;
       } else {
         end = middle - 1;
       }

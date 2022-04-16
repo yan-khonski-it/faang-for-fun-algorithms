@@ -22,6 +22,7 @@ https://leetcode.com/explore/learn/card/binary-search/
 
 https://leetcode.com/study-plan/binary-search/?progress=iz1yacv
 
+https://leetcode.com/explore/learn/card/binary-search/125/template-i/952/
 ### Later
 
 study merge sort
