@@ -17,6 +17,13 @@ Drive algorithm - I use google docs for coding
 
 ## TODO list
 
+### Now
+https://leetcode.com/explore/learn/card/binary-search/
+
+https://leetcode.com/study-plan/binary-search/?progress=iz1yacv
+
+### Later
+
 study merge sort
 
 !https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/submissions/
