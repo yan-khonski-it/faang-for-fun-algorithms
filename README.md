@@ -18,11 +18,22 @@ Drive algorithm - I use google docs for coding
 ## TODO list
 
 ### Now
+format code - links and package names convention.
+
+#### google docs practice
+ - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+ - https://leetcode.com/problems/move-zeroes/
+ - https://leetcode.com/problems/remove-element/
+
+#### Follow up 
+https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+
 https://leetcode.com/explore/learn/card/binary-search/
 
 https://leetcode.com/study-plan/binary-search/?progress=iz1yacv
 
 https://leetcode.com/explore/learn/card/binary-search/125/template-i/952/
+
 ### Later
 
 study merge sort
