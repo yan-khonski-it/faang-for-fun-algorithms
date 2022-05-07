@@ -25,6 +25,8 @@ https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
 
 https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 
+recall sqrt(x) with double number and precision 1e-5
+
 https://leetcode.com/problems/pour-water-between-buckets-to-make-water-levels-equal/
 
 #### google docs practice
