@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * right. Note that elements beyond the length of the original array are not written. Do the above modifications to the
  * input array in place and do not return anything.
  */
-public class Solution {
+class Solution {
 
   public void duplicateZeros(int[] arr) {
     int zeroCount = countZeros(arr);

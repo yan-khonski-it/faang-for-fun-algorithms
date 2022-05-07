@@ -1,4 +1,4 @@
-package com.yk.faang.fun.algorithms.billion_users_apps;
+package com.yk.faang.fun.algorithms.billion_users;
 
 /**
  * https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=951929261870357&ppid=454615229006519&practice_plan=0

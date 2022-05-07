@@ -3,6 +3,10 @@ package com.yk.faang.fun.algorithms.rotate_image;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
+ * https://leetcode.com/problems/rotate-image/
+ * <p>
+ * 48. Rotate Image
+ * <p>
  * Optimal solution. #Google
  * <p>
  * You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).

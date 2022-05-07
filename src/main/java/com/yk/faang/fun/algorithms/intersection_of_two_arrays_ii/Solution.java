@@ -1,4 +1,4 @@
-package com.yk.faang.fun.algorithms.intersection_of_two_arrays2;
+package com.yk.faang.fun.algorithms.intersection_of_two_arrays_ii;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * https://leetcode.com/problems/intersection-of-two-arrays-ii/submissions/
+ *
  * <p>
  * 350. Intersection of Two Arrays II
  * <p>
@@ -15,6 +16,9 @@ import java.util.List;
  * appear as many times as it shows in both arrays and you may return the result in any order.
  * <p>
  * Coding in notepad https://docs.google.com/document/d/1LRkOF8LlZpzmpNRgUuRwijoaHjsYl-TYNpYFfFejeuA/edit?usp=sharing
+ *
+ * A similar task
+ * https://leetcode.com/problems/intersection-of-two-arrays/
  */
 class Solution {
 

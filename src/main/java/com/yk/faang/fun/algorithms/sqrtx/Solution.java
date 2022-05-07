@@ -1,4 +1,4 @@
-package com.yk.faang.fun.algorithms.sqrt_x;
+package com.yk.faang.fun.algorithms.sqrtx;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,4 +1,4 @@
-package com.yk.faang.fun.algorithms.duplicates_numbers;
+package com.yk.faang.fun.algorithms.find_the_duplicate_number;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

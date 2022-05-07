@@ -1,4 +1,4 @@
-package com.yk.faang.fun.algorithms.smallest_letter_after_target;
+package com.yk.faang.fun.algorithms.find_smallest_letter_greater_than_target;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

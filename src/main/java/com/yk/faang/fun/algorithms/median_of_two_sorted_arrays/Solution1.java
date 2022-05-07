@@ -2,80 +2,60 @@ package com.yk.faang.fun.algorithms.median_of_two_sorted_arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * https://leetcode.com/problems/median-of-two-sorted-arrays/
+ * <p>
+ * 4. Median of Two Sorted Arrays
+ * <p>
+ * Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+ * <p>
+ * The overall run time complexity should be O(log (m+n)).
+ * <p>
+ * This is an improved version of {@link Solution2}.
+ */
+@SuppressWarnings("ALL")
 class Solution1 {
 
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-    if (nums1.length == 0) {
-      return median(nums2);
-    } else if (nums2.length == 0) {
-      return median(nums1);
-    } else if (nums1.length == 1 && nums2.length == 1) {
-      return average(nums1[0], nums2[0]);
-    }
+     if (nums1.length == 0) {
+         return median(nums2);
+     } else if (nums2.length == 0) {
+         return median(nums1);
+     } else if (nums1.length == 1 && nums2.length == 1) {
+         return average(nums1[0], nums2[0]);
+     }
 
+     // O(n + m)
+    // Similar to merge two sorted array, but we just check elements.
+    int totalSize = nums1.length + nums2.length;
+    boolean totalSizeEven = totalSize % 2 == 0;
+    int previousElement = 0;
+    int currentElement = 0;
     int index1 = 0;
     int index2 = 0;
-    double current = 0;
-    double previous;
-    int checkedNumbersCount = 0;
-    int totalLength = nums1.length + nums2.length;
-    int numbersCountToCheck = totalLength / 2 + 1;
-    boolean totalLengthEven = totalLength % 2 == 0;
 
-    while (index1 < nums1.length && index2 < nums2.length) {
-      checkedNumbersCount++;
-
-      previous = current;
-      if (nums1[index1] < nums2[index2]) {
-        current = nums1[index1];
+    for (int i = 0; i <= totalSize / 2; i++) {
+      previousElement = currentElement;
+      if (index1 >= nums1.length) {
+        currentElement = nums2[index2];
+        index2++;
+      } else if (index2 >= nums2.length) {
+        currentElement = nums1[index1];
+        index1++;
+      } else if (nums1[index1] < nums2[index2]) {
+        currentElement = nums1[index1];
         index1++;
       } else {
-        current = nums2[index2];
+        currentElement = nums2[index2];
         index2++;
       }
-
-      if (checkedNumbersCount == numbersCountToCheck) {
-        if (totalLengthEven) {
-          return average(previous, current);
-        } else {
-          return current;
-        }
-      }
     }
 
-    // The second array is over, continue with the first array
-    while (index1 < nums1.length) {
-      checkedNumbersCount++;
-      previous = current;
-      current = nums1[index1];
-      index1++;
-
-      if (checkedNumbersCount == numbersCountToCheck) {
-        if (totalLengthEven) {
-          return average(previous, current);
-        } else {
-          return current;
-        }
-      }
+    if (totalSizeEven) {
+      return average(previousElement, currentElement);
+    } else {
+      return currentElement;
     }
-
-    // The first array is over, continue with the second array
-    while (index2 < nums2.length) {
-      checkedNumbersCount++;
-      previous = current;
-      current = nums2[index2];
-      index2++;
-
-      if (checkedNumbersCount == numbersCountToCheck) {
-        if (totalLengthEven) {
-          return average(previous, current);
-        } else {
-          return current;
-        }
-      }
-    }
-
-    return -1;
   }
 
   private double median(int[] array) {
@@ -100,15 +80,12 @@ class Solution1 {
   }
 
   private double average(int a, int b) {
-    return average(a, (double) b);
-  }
-
-  private double average(double a, double b) {
-    return (a + b) / 2;
+    return ((double) a + b) / 2;
   }
 }
 
-class Main {
+@SuppressWarnings("DuplicatedCode")
+class Main1 {
 
   public static void main(String[] args) {
     Solution1 solution1 = new Solution1();

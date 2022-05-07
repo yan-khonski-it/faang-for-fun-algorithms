@@ -1,4 +1,4 @@
-package com.yk.faang.fun.algorithms.borders_in_sorted_array;
+package com.yk.faang.fun.algorithms.find_first_and_last_position_of_element_in_sorted_array;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

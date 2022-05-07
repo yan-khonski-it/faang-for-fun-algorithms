@@ -1,4 +1,4 @@
-package com.yk.faang.fun.algorithms.guess_number;
+package com.yk.faang.fun.algorithms.guess_number_higher_or_lower;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

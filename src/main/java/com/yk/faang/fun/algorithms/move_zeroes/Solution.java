@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero
  * elements. Note that you must do this in-place without making a copy of the array.
  */
-public class Solution {
+class Solution {
 
   // Originally, similarly to https://leetcode.com/problems/duplicate-zeros/
   // we write into current position element of the current index + current zeros count.

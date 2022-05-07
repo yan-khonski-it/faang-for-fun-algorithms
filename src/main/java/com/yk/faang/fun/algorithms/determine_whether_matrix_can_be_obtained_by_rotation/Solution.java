@@ -1,7 +1,15 @@
-package com.yk.faang.fun.algorithms.matrix_rotation_is_applied;
+package com.yk.faang.fun.algorithms.determine_whether_matrix_can_be_obtained_by_rotation;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotation/
+ * <p>
+ * 1886. Determine Whether Matrix Can Be Obtained By Rotation
+ * <p>
+ * Given two n x n binary matrices mat and target, return true if it is possible to make mat equal to target by rotating
+ * mat in 90-degree increments, or false otherwise.
+ */
 class Solution {
 
   // check 0 deg, 180 deg, transform, check 90 and 270 deg

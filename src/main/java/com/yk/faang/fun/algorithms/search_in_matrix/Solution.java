@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Integers in each row are sorted from left to right. The first integer of each row is greater than the last integer of
  * the previous row.
  */
-public class Solution {
+class Solution {
 
   // Note, in this approach, I build an imaginary array of m * n and just perform a binary search.
   // I have to take care of index mapping.
