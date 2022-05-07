@@ -18,7 +18,14 @@ Drive algorithm - I use google docs for coding
 ## TODO list
 
 ### Now
-format code - links and package names convention.
+Practice on google docs, add solutiuon to git
+https://leetcode.com/problems/search-in-rotated-sorted-array/
+
+https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+
+https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+
+https://leetcode.com/problems/pour-water-between-buckets-to-make-water-levels-equal/
 
 #### google docs practice
  - https://leetcode.com/problems/remove-duplicates-from-sorted-array/
@@ -32,7 +39,6 @@ https://leetcode.com/explore/learn/card/binary-search/
 
 https://leetcode.com/study-plan/binary-search/?progress=iz1yacv
 
-https://leetcode.com/explore/learn/card/binary-search/125/template-i/952/
 
 ### Later
 
