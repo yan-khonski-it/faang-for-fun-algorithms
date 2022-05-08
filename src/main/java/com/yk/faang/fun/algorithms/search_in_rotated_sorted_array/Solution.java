@@ -19,6 +19,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  * You must write an algorithm with O(log n) runtime complexity.
  * <p>
  * Coding in notepad https://docs.google.com/document/d/1XjDHc_VHbsRA0_xEQO4ZZ74gafxPtknWGxCTetCcVZY/edit?usp=sharing
+ * <p>
+ * Similar problems:
+ * <p>
+ * https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+ * <p>
+ * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
  */
 class Solution {
 
@@ -62,7 +68,7 @@ class Main {
 
   public static void main(String[] args) {
     Solution solution = new Solution();
-    int[] array1 = {4,5,6,7,0,1,2};
+    int[] array1 = {4, 5, 6, 7, 0, 1, 2};
     int target1 = 0;
     int res1 = solution.search(array1, target1);
     assertThat(res1).isEqualTo(4);
