@@ -19,9 +19,7 @@ Drive algorithm - I use google docs for coding
 
 ### Now
 
-https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
-
-https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+https://leetcode.com/explore/featured/card/fun-with-arrays/511/in-place-operations/3257/
 
 recall sqrt(x) with double number and precision 1e-5
 
