@@ -18,8 +18,6 @@ Drive algorithm - I use google docs for coding
 ## TODO list
 
 ### Now
-Practice on google docs, add solutiuon to git
-https://leetcode.com/problems/search-in-rotated-sorted-array/
 
 https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
 
