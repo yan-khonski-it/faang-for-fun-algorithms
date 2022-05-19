@@ -28,9 +28,7 @@ class Solution {
     // O(log(min(n, m)))
     // swap, to have first array smaller - less number of iterations
     if (nums1.length > nums2.length) {
-      int[] tmp = nums1;
-      nums1 = nums2;
-      nums2 = tmp;
+      findMedianSortedArrays(nums2, nums1);
     }
 
     int totalLength = nums1.length + nums2.length;

@@ -21,6 +21,7 @@
   <rule ref="category/java/bestpractices.xml">
     <exclude name="UseVarargs"/>
     <exclude name="MethodReturnsInternalArray"/>
+    <exclude name="ArrayIsStoredDirectly" />
   </rule>
 
   <!-- https://maven.apache.org/plugins/maven-pmd-plugin/examples/usingRuleSets.html -->
