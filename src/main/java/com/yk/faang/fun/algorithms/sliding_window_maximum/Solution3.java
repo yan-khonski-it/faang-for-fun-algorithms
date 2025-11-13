@@ -56,7 +56,7 @@ public class Solution3 {
         }
 
         for(int i = 0; i + k <= len; i++){
-            res[i] = query(i, i + (k - 1), lookup);
+            res[i] = query(i, i + k - 1, lookup);
         }
         return res ;
     }

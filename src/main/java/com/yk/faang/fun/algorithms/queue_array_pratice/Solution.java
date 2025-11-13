@@ -50,6 +50,7 @@ public class Solution {
       return this.elements[this.start];
     }
 
+    @Override
     public String toString() {
       if (currentSize == 0) {
         return "[]";
@@ -122,10 +123,8 @@ public class Solution {
     assertThat(queue.elements).isEqualTo(new int[]{0, 0, 0, 0, 0});
     assertThat(value).isEqualTo(6);
 
-    System.out.println(queue);
     queue.enqueue(7);
     assertThat(queue.elements).isEqualTo(new int[]{7, 0, 0, 0, 0});
     assertThat(queue.peek()).isEqualTo(7);
-    System.out.println(queue);
   }
 }

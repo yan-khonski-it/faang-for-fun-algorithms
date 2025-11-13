@@ -16,7 +16,7 @@ class Solution2 {
     // and their difference is the duplicate number
     // O(n)
 
-    int expectedSum = (nums.length) * (nums.length - 1) / 2;
+    int expectedSum = nums.length * (nums.length - 1) / 2;
     int actualSum = sum(nums);
     return actualSum - expectedSum;
   }

@@ -23,7 +23,6 @@ import org.slf4j.LoggerFactory;
  * <p>
  * Example 3 growthRates = [1.01, 1.02] output = 1047
  */
-@SuppressWarnings("PMD.SystemPrintln")
 class Main {
 
   static final Logger LOGGER = LoggerFactory.getLogger(Main.class);

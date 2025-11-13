@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 // TODO - fix it, this solution is broken
+@SuppressWarnings("PMD.LooseCoupling")
 class Solution {
 
   public int strStr(String haystack, String needle) {

@@ -45,8 +45,8 @@ public class Solution3 {
   }
 
   private boolean isPrefixPresentInAllStrings(String prefix, String[] strs) {
-    for (int i = 0; i < strs.length; i++) {
-      if (!strs[i].startsWith(prefix)) {
+    for (String str : strs) {
+      if (!str.startsWith(prefix)) {
         return false;
       }
     }

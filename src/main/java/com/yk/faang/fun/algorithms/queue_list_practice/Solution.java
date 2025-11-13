@@ -17,7 +17,6 @@ public class Solution {
   }
 
 
-
   static final class Queue {
     private Node head = null;
     private Node tail = null;
@@ -55,6 +54,7 @@ public class Solution {
       return head.val;
     }
 
+    @Override
     public String toString() {
       if (head == null) {
         return "[]";
@@ -77,31 +77,25 @@ public class Solution {
     Queue queue = new Queue();
     queue.enqueue(1);
     assertThat(queue.peek()).isEqualTo(1);
-    System.out.println(queue);
 
     queue.enqueue(2);
     queue.enqueue(3);
     queue.enqueue(4);
     assertThat(queue.peek()).isEqualTo(1);
-    System.out.println(queue);
 
     queue.enqueue(5);
     assertThat(queue.peek()).isEqualTo(1);
-    System.out.println(queue);
 
     int value = queue.dequeue();
     assertThat(queue.peek()).isEqualTo(2);
     assertThat(value).isEqualTo(1);
-    System.out.println(queue);
 
     queue.enqueue(6);
     assertThat(queue.peek()).isEqualTo(2);
-    System.out.println(queue);
 
     value = queue.dequeue();
     assertThat(queue.peek()).isEqualTo(3);
     assertThat(value).isEqualTo(2);
-    System.out.println(queue);
 
     value = queue.dequeue();
     assertThat(value).isEqualTo(3);
@@ -117,9 +111,7 @@ public class Solution {
     value = queue.dequeue();
     assertThat(value).isEqualTo(6);
 
-    System.out.println(queue);
     queue.enqueue(7);
     assertThat(queue.peek()).isEqualTo(7);
-    System.out.println(queue);
   }
 }

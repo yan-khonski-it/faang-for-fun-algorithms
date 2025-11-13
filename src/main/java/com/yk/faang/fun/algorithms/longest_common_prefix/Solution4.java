@@ -25,12 +25,12 @@ public class Solution4 {
     }
 
     Trie trie = new Trie();
-    for (int i = 0; i < strs.length; i++) {
-      if (strs[i].isEmpty()) {
+    for (String str : strs) {
+      if (str.isEmpty()) {
         return "";
       }
 
-      trie.insert(strs[i]);
+      trie.insert(str);
     }
 
     return trie.longestPrefix();
@@ -60,8 +60,7 @@ class Trie {
     Node current = root;
     for (int i = 0; i < word.length(); i++) {
       char ch = word.charAt(i);
-      Node node = current.children.computeIfAbsent(ch, k -> new Node(ch));
-      current = node;
+      current = current.children.computeIfAbsent(ch, k -> new Node(ch));
     }
 
     current.isEndOfWord = true;
