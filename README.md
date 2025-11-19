@@ -18,7 +18,7 @@ It will run tests ensuring that the code quality passes and algorithms are corre
 
 
 ## I used the starter project
-https://github.com/yan-khonski-it/java-25-pmd
+https://github.com/yan-khonski-it/pmd-java-21
 
 It configured logging, unit tests, (Google) code style formatting, PMD.
 

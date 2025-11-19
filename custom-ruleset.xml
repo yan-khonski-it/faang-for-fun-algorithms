@@ -6,6 +6,8 @@
     The Basic ruleset contains a collection of good practices which should be followed.
   </description>
 
+  <rule ref="category/java/security.xml"/>
+
   <rule ref="category/java/design.xml/SimplifiedTernary"/>
   <rule ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor"/>
   <rule ref="category/java/bestpractices.xml/UnusedLocalVariable"/>
