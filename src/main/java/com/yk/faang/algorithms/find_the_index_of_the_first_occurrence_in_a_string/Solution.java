@@ -142,7 +142,7 @@ class Main {
 
   static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
-  public static void main(String[] args) {
+  static void main() {
     Solution solution = new Solution();
     String haystack = "bbbbababbbaabbba";
     String needle = "abb";

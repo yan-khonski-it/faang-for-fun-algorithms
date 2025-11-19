@@ -4,10 +4,21 @@ My preparation for coding interviews at various companies.
 
 > Disclaimer. All these problems are available on the public internet: leetcode, hackerrank, habr,
 > etc.
-> All these solutions are mine or contributed by my friends.
+> All these solutions are mine.
+
+## Prerequisites
+- Java 15
+- Maven
+
+## Build
+```shell
+mvn clean install
+```
+It will run tests ensuring that the code quality passes and algorithms are correct.
+
 
 ## I used the starter project
-https://github.com/yan-khonski-it/java-17-pmd
+https://github.com/yan-khonski-it/java-25-pmd
 
 It configured logging, unit tests, (Google) code style formatting, PMD.
 
