@@ -1,6 +1,6 @@
 package com.yk.faang.leetcode.l0593_count_squares;
 
-import static com.yk.faang.utils.TimerUtils.runTestCaseWithTimerNs;
+import static com.yk.faang.utils.TimeUtils.withTimerMs;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
@@ -8,19 +8,17 @@ import java.util.Arrays;
 /**
  * https://leetcode.com/discuss/interview-question/1030039/pure-storage-technical-round-member-of-technical-staff
  * <p>
- * Design a function that takes in >= 4 points and returns the number of squares that can be formed
- * (i.e. how many groups of 4 points(x,y coordinates) within the input points form a square)
+ * Design a function that takes in >= 4 points and returns the number of squares that can be formed (i.e. how many groups of 4 points(x,y coordinates) within
+ * the input points form a square)
  * <p>
  * Expectation: The complexity of the extended question should be O(N^3) where N is the number of points.
  */
 public class CountSquaresSolution2 {
 
-  private Solution2 validSquareSolution = new Solution2();
+  private final Solution2 validSquareSolution = new Solution2();
 
   /**
-   * Time: O(n^4) <br>
-   * Space: O(1)
-   * We will use brute force here. For each 4 points, we will check if it is a square.
+   * Time: O(n^4) <br> Space: O(1) We will use brute force here. For each 4 points, we will check if it is a square.
    */
   public int countSquares(int[][] points) {
     if (points.length < 4 || !validatePoints(points)) {
@@ -33,7 +31,6 @@ public class CountSquaresSolution2 {
     for (int i = 0; i < points.length; i++) {
       breakTwoPointsLabel:
       for (int j = i + 1; j < points.length; j++) {
-
 
         for (int k = j + 1; k < points.length; k++) {
           for (int l = k + 1; l < points.length; l++) {
@@ -72,8 +69,9 @@ public class CountSquaresSolution2 {
 class Main4 {
 
   static void main() {
+    int[][] points = new int[][]{{0, 0}, {0, 1}, {1, 0}, {1, 1}, {2, 0}, {2, 1}, {3, 0}, {3, 1}, {1, 2}, {2, 2}, {3, 2}};
     CountSquaresSolution2 solution2 = new CountSquaresSolution2();
-    int res = runTestCaseWithTimerNs(() -> solution2.countSquares(new int[][]{{0, 0}, {0, 1}, {1, 0}, {1, 1}, {2, 0}, {2, 1}, {3, 0}, {3, 1}, {1, 2}, {2, 2}, {3, 2}}));
+    int res = withTimerMs(() -> solution2.countSquares(points), "countSquares(points)");
     assertThat(res).isEqualTo(6);
   }
 }

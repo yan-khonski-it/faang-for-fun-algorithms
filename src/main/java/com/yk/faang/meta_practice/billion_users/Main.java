@@ -118,8 +118,8 @@ class Main {
 
   void check(int expected, int output) {
     boolean result = expected == output;
-    char rightTick = '\u2713';
-    char wrongTick = '\u2717';
+    char rightTick = '✓';
+    char wrongTick = '✗';
     if (result) {
       print(rightTick + " Test #" + test_case_number);
     } else {

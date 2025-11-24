@@ -1,6 +1,6 @@
 package com.yk.faang.leetcode.l0014_longest_common_prefix;
 
-import static com.yk.faang.utils.TimerUtils.runTestCaseWithTimerNs;
+import static com.yk.faang.utils.TimeUtils.withTimerMs;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.yk.faang.utils.TestCaseUtils;
@@ -90,7 +90,7 @@ class Main4 {
     assertThat(prefix1).isEqualTo("fl");
 
     String[] testCase0Strings = TestCaseUtils.readLines("test_cases/longest_common_prefix/test01.txt").toArray(new String[0]);
-    String prefix2 = runTestCaseWithTimerNs(() -> solution.longestCommonPrefix(testCase0Strings));
+    String prefix2 = withTimerMs(() -> solution.longestCommonPrefix(testCase0Strings), "longestCommonPrefix(testCase0Strings)");
     assertThat(prefix2).isEqualTo("fl");
   }
 }

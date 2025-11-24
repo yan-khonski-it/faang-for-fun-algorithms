@@ -1,6 +1,6 @@
 package com.yk.faang.leetcode.l0239_sliding_window_maximum;
 
-import static com.yk.faang.utils.TimerUtils.runTestCaseWithTimer;
+import static com.yk.faang.utils.TimeUtils.withTimerMs;
 import static com.yk.faang.utils.TestCaseUtils.readInputAsArray;
 import static com.yk.faang.utils.TestCaseUtils.readInputAsArrayAndK;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -113,22 +113,20 @@ class Main1 {
 
     ArrayAndK arrayAndK2 = readInputAsArrayAndK("test_cases/sliding_window_maximum/test52.txt");
     int[] expectedArray2 = readInputAsArray("test_cases/sliding_window_maximum/test52_expected.txt");
-    int[] array2 = arrayAndK2.getArray();
-    int k2 = arrayAndK2.getK();
+    int[] array2 = arrayAndK2.array();
+    int k2 = arrayAndK2.k();
 
-    int[] res2 = runTestCaseWithTimer(() -> { // 13 ms
-      return solution1.maxSlidingWindow(array2, k2);
-    });
+    // 13 ms
+    int[] res2 = withTimerMs(() -> solution1.maxSlidingWindow(array2, k2), "maxSlidingWindow(array2, k2)");
     assertThat(res2).isEqualTo(expectedArray2);
 
     ArrayAndK arrayAndK3 = readInputAsArrayAndK("test_cases/sliding_window_maximum/test49.txt");
     int[] expectedArray3 = readInputAsArray("test_cases/sliding_window_maximum/test49_expected.txt");
-    int[] array3 = arrayAndK3.getArray();
-    int k3 = arrayAndK3.getK();
-    int[] res3 = runTestCaseWithTimer(() -> { // 19 ms
-      return solution1.maxSlidingWindow(array3, k3);
-    });
+    int[] array3 = arrayAndK3.array();
+    int k3 = arrayAndK3.k();
 
+    // 19 ms
+    int[] res3 = withTimerMs(() -> solution1.maxSlidingWindow(array3, k3), "maxSlidingWindow(array3, k3)");
     assertThat(res3).isEqualTo(expectedArray3);
   }
 }

@@ -1,12 +1,14 @@
 package com.yk.faang.leetcode.l0593_count_squares;
 
-import static com.yk.faang.utils.TimerUtils.runTestCaseWithTimerNs;
+import static com.yk.faang.utils.TimeUtils.withTimerMs;
 import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * https://leetcode.com/problems/valid-square/ Given the coordinates of four points in 2D space p1, p2, p3 and p4, return true if the four points construct a square.
+ * https://leetcode.com/problems/valid-square/ Given the coordinates of four points in 2D space p1, p2, p3 and p4, return true if the four points construct a
+ * square.
  */
 public class Solution1 {
 
@@ -94,28 +96,28 @@ class Main1 {
   static void main() {
     Solution1 solution = new Solution1();
 
-    boolean res1 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{0, 0}, new int[]{1, 1}, new int[]{0, 0}, new int[]{1, 1}));
+    boolean res1 = withTimerMs(() -> solution.validSquare(new int[]{0, 0}, new int[]{1, 1}, new int[]{0, 0}, new int[]{1, 1}), "validSquare");
     assertThat(res1).isFalse();
 
-    boolean res2 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{0, 0}, new int[]{0, 0}, new int[]{0, 0}, new int[]{0, 0}));
+    boolean res2 = withTimerMs(() -> solution.validSquare(new int[]{0, 0}, new int[]{0, 0}, new int[]{0, 0}, new int[]{0, 0}), "validSquare");
     assertThat(res2).isFalse();
 
-    boolean res3 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{0, 1}, new int[]{1, 2}, new int[]{0, 2}, new int[]{0, 0}));
+    boolean res3 = withTimerMs(() -> solution.validSquare(new int[]{0, 1}, new int[]{1, 2}, new int[]{0, 2}, new int[]{0, 0}), "validSquare");
     assertThat(res3).isFalse();
 
-    boolean res4 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{1, 1}, new int[]{0, 1}, new int[]{1, 2}, new int[]{0, 0}));
+    boolean res4 = withTimerMs(() -> solution.validSquare(new int[]{1, 1}, new int[]{0, 1}, new int[]{1, 2}, new int[]{0, 0}), "validSquare");
     assertThat(res4).isFalse();
 
-    boolean res5 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{1, 1}, new int[]{5, 3}, new int[]{3, 5}, new int[]{7, 7}));
+    boolean res5 = withTimerMs(() -> solution.validSquare(new int[]{1, 1}, new int[]{5, 3}, new int[]{3, 5}, new int[]{7, 7}), "validSquare");
     assertThat(res5).isFalse();
 
-    boolean res6 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{0, 0}, new int[]{1, 1}, new int[]{1, 0}, new int[]{0, 1}));
+    boolean res6 = withTimerMs(() -> solution.validSquare(new int[]{0, 0}, new int[]{1, 1}, new int[]{1, 0}, new int[]{0, 1}), "validSquare");
     assertThat(res6).isTrue();
 
-    boolean res7 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{1, 0}, new int[]{-1, 0}, new int[]{0, 1}, new int[]{0, -1}));
+    boolean res7 = withTimerMs(() -> solution.validSquare(new int[]{1, 0}, new int[]{-1, 0}, new int[]{0, 1}, new int[]{0, -1}), "validSquare");
     assertThat(res7).isTrue();
 
-    boolean res8 = runTestCaseWithTimerNs(() -> solution.validSquare(new int[]{2, 0}, new int[]{1, 2}, new int[]{3, 3}, new int[]{4, 1}));
+    boolean res8 = withTimerMs(() -> solution.validSquare(new int[]{2, 0}, new int[]{1, 2}, new int[]{3, 3}, new int[]{4, 1}), "validSquare");
     assertThat(res8).isTrue();
   }
 }

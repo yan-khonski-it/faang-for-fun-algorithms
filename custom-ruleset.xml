@@ -24,6 +24,7 @@
     <exclude name="UseVarargs"/>
     <exclude name="MethodReturnsInternalArray"/>
     <exclude name="ArrayIsStoredDirectly" />
+    <exclude name="ForLoopCanBeForeach" />
   </rule>
 
   <!-- https://maven.apache.org/plugins/maven-pmd-plugin/examples/usingRuleSets.html -->

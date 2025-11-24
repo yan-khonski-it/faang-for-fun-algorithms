@@ -1,6 +1,6 @@
 package com.yk.faang.leetcode.l0593_count_squares;
 
-import static com.yk.faang.utils.TimerUtils.runTestCaseWithTimerNs;
+import static com.yk.faang.utils.TimeUtils.withTimerMs;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashSet;
@@ -19,24 +19,24 @@ public class CountSquaresSolution1 {
   /**
    * Time: O(n^2) <br>
    * Space: O(n)
-   *
+   * <p>
    * We iterate though all couple of points (it is potentially a diagonal of a square). We will find orthogonal diagonal and check if its points are present in the input.
    * We double the coordinates of the input, to divide them by 2 as integers.
-   *
+   * <p>
    * Let us have a pair of points A and C. AC is a diagonal of a square.
    * So we need to find points B and D, such as AC is orthogonal to BD and AC == BD.
-   *
+   * <p>
    * Let v1 and v2 be vectors. If v1 * v2 = 0, v1 is orthogonal to v2. Let v1 have coordinates (x, y), then v2 has coordinates (-y, x).
    * Let O be the center of the square. Then O has coordinates ((Ax + Cx) / 2, (Ay + Cy) / 2). [This is why we double the coordinates of the input].
    * Let AO be the vector that represents half of the diagonal AC. Then AO has coordinates ((Cx - Ax) / 2, (Cy - Ay) / 2).
-   *
+   * <p>
    * Now, let's find the vector OB, that is orthogonal to AO. And vector BO that has the opposite direction to OB.
    * OB has coordinates ((Ay - Cy) / 2, (-Ax + Cx) / 2).
-   *
+   * <p>
    * Now, to get coordinates of B, we add coordinates of O to the vector OB.
    * Therefore, B has coordinates ((Ax + Cx + Ay - Cy) / 2; (Ay + Cy - Ax + Cx) / 2).
    * Similarly, D has coordinates ((Ax + Cx - Ay + Cy) / 2; (Ay + Cy + Ax - Cx) / 2).
-   *
+   * <p>
    * https://math.stackexchange.com/questions/506785/given-two-diagonally-opposite-points-on-a-square-how-to-calculate-the-other-two?rq=1
    *
    */
@@ -126,8 +126,9 @@ public class CountSquaresSolution1 {
 class Main3 {
 
   static void main() {
+    int[][] points = new int[][]{{0, 0}, {0, 1}, {1, 0}, {1, 1}, {2, 0}, {2, 1}, {3, 0}, {3, 1}, {1, 2}, {2, 2}, {3, 2}};
     CountSquaresSolution1 solution = new CountSquaresSolution1();
-    int res = runTestCaseWithTimerNs(() -> solution.countSquares(new int[][]{{0, 0}, {0, 1}, {1, 0}, {1, 1}, {2, 0}, {2, 1}, {3, 0}, {3, 1}, {1, 2}, {2, 2}, {3, 2}}));
+    int res = withTimerMs(() -> solution.countSquares(points), "countSquares(points)");
     assertThat(res).isEqualTo(6);
   }
 }

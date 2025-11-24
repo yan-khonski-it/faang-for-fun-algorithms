@@ -44,16 +44,16 @@ class Solution {
 
       int beforePartition1 = partition1 - 1 < 0 ? Integer.MIN_VALUE : nums1[partition1 - 1];
       int afterPartition1 = partition1 >= nums1.length ? Integer.MAX_VALUE : nums1[partition1];
-      int beforePArtition2 = partition2 - 1 < 0 ? Integer.MIN_VALUE : nums2[partition2 - 1];
+      int beforePartition2 = partition2 - 1 < 0 ? Integer.MIN_VALUE : nums2[partition2 - 1];
       int afterPartition2 = partition2 >= nums2.length ? Integer.MAX_VALUE : nums2[partition2];
 
-      if (beforePartition1 <= afterPartition2 && beforePArtition2 <= afterPartition1) {
+      if (beforePartition1 <= afterPartition2 && beforePartition2 <= afterPartition1) {
         // We found partitions
-        return totalLengthEven ? average(Math.max(beforePartition1, beforePArtition2),
-            Math.min(afterPartition1, afterPartition2)) : Math.max(beforePartition1, beforePArtition2);
+        return totalLengthEven ? average(Math.max(beforePartition1, beforePartition2),
+            Math.min(afterPartition1, afterPartition2)) : Math.max(beforePartition1, beforePartition2);
       } else if (beforePartition1 > afterPartition2) {
         right1 = partition1 - 1;
-      } else if (beforePArtition2 > afterPartition1) {
+      } else if (beforePartition2 > afterPartition1) {
         left1 = partition1 + 1;
       }
     }
