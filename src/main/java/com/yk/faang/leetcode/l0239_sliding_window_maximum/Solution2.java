@@ -1,11 +1,5 @@
 package com.yk.faang.leetcode.l0239_sliding_window_maximum;
 
-import static com.yk.faang.utils.TimeUtils.withTimerMs;
-import static com.yk.faang.utils.TestCaseUtils.readInputAsArray;
-import static com.yk.faang.utils.TestCaseUtils.readInputAsArrayAndK;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import com.yk.faang.utils.ArrayAndK;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,19 +8,19 @@ import java.util.List;
  * <p>
  * 239. Sliding Window Maximum
  * <p>
- * You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of
- * the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right
- * by one position.
+ * You are given an array of integers nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only
+ * see the k numbers in the window. Each time the sliding window moves right by one position.
  * <p>
  * Return the max sliding window.
  */
-public class Solution2 {
+public class Solution2 implements ISolution {
 
   // O(n * k)
   // Runtime: 2204 ms on leetcode
   // and on my machine
   // 268 ms
   // 402 ms
+  @Override
   public int[] maxSlidingWindow(int[] nums, int k) {
     if (k == 1) {
       return nums;
@@ -73,37 +67,5 @@ public class Solution2 {
       res[i] = list.get(i);
     }
     return res;
-  }
-}
-
-@SuppressWarnings("DuplicatedCode")
-class Main2 {
-
-  static void main() {
-    Solution2 solution2 = new Solution2();
-    int[] array1 = {1, 3, -1, -3, 5, 3, 6, 7};
-    int k1 = 3;
-    int[] res1 = solution2.maxSlidingWindow(array1, k1);
-    assertThat(res1).isEqualTo(new int[]{3, 3, 5, 5, 6, 7});
-
-    ArrayAndK arrayAndK2 = readInputAsArrayAndK("test_cases/sliding_window_maximum/test52.txt");
-    int[] expectedArray2 = readInputAsArray("test_cases/sliding_window_maximum/test52_expected.txt");
-    int[] array2 = arrayAndK2.array();
-    int k2 = arrayAndK2.k();
-
-    // 268 ms
-    int[] res2 = withTimerMs(() -> solution2.maxSlidingWindow(array2, k2), "maxSlidingWindow(array2, k2)");
-
-    assertThat(res2).isEqualTo(expectedArray2);
-
-    ArrayAndK arrayAndK3 = readInputAsArrayAndK("test_cases/sliding_window_maximum/test49.txt");
-    int[] expectedArray3 = readInputAsArray("test_cases/sliding_window_maximum/test49_expected.txt");
-    int[] array3 = arrayAndK3.array();
-    int k3 = arrayAndK3.k();
-
-    // 402 ms
-    int[] res3 = withTimerMs(() -> solution2.maxSlidingWindow(array3, k3), "maxSlidingWindow(array3, k3);");
-
-    assertThat(res3).isEqualTo(expectedArray3);
   }
 }

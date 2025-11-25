@@ -1,7 +1,5 @@
 package com.yk.faang.leetcode.l0155_min_stack;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -14,11 +12,10 @@ import java.util.LinkedList;
  * <p>
  * Implement the MinStack class:
  * <p>
- * MinStack() initializes the stack object. void push(int val) pushes the element val onto the stack. void pop() removes
- * the element on the top of the stack. int top() gets the top element of the stack. int getMin() retrieves the minimum
- * element in the stack.
+ * MinStack() initializes the stack object. void push(int val) pushes the element val onto the stack. void pop() removes the element on the top of the stack.
+ * int top() gets the top element of the stack. int getMin() retrieves the minimum element in the stack.
  */
-class MinStack {
+class MinStack implements IMinStack {
 
   // Simple implementation that keeps pair of inserted elements and current min value.
   // if newly inserted element has a value smaller than the current value,
@@ -34,6 +31,7 @@ class MinStack {
     stack = new LinkedList<>();
   }
 
+  @Override
   public void push(int val) {
     if (stack.isEmpty()) {
       stack.addLast(Pair.of(val, val));
@@ -48,14 +46,17 @@ class MinStack {
     stack.addLast(Pair.of(val, currentMin));
   }
 
+  @Override
   public void pop() {
     stack.removeLast();
   }
 
+  @Override
   public int top() {
     return stack.getLast().value;
   }
 
+  @Override
   public int getMin() {
     return stack.getLast().minValue;
   }
@@ -73,30 +74,5 @@ class MinStack {
     public static Pair of(int value, int minValue) {
       return new Pair(value, minValue);
     }
-  }
-}
-
-/**
- * Your MinStack object will be instantiated and called as such: MinStack obj = new MinStack(); obj.push(val);
- * obj.pop(); int param_3 = obj.top(); int param_4 = obj.getMin();
- */
-@SuppressWarnings("DuplicatedCode")
-class Main {
-
-  static void main() {
-    MinStack minStack = new MinStack();
-    minStack.push(5);
-    minStack.push(10);
-    assertThat(minStack.top()).isEqualTo(10);
-    assertThat(minStack.getMin()).isEqualTo(5);
-    minStack.push(1);
-    assertThat(minStack.top()).isEqualTo(1);
-    assertThat(minStack.getMin()).isEqualTo(1);
-    minStack.pop();
-    assertThat(minStack.top()).isEqualTo(10);
-    assertThat(minStack.getMin()).isEqualTo(5);
-    minStack.pop();
-    assertThat(minStack.top()).isEqualTo(5);
-    assertThat(minStack.getMin()).isEqualTo(5);
   }
 }

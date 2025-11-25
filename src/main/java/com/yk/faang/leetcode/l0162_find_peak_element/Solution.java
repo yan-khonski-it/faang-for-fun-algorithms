@@ -1,18 +1,16 @@
 package com.yk.faang.leetcode.l0162_find_peak_element;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * https://leetcode.com/problems/find-peak-element/
- *
+ * <p>
  * 162. Find Peak Element
- *
+ * <p>
  * A peak element is an element that is strictly greater than its neighbors.
- *
+ * <p>
  * Given an integer array nums, find a peak element, and return its index. If the array contains multiple peaks, return the index to any of the peaks.
- *
+ * <p>
  * You may imagine that nums[-1] = nums[n] = -∞.
- *
+ * <p>
  * You must write an algorithm that runs in O(log n) time.
  */
 class Solution {
@@ -43,15 +41,5 @@ class Solution {
     }
 
     return left;
-  }
-}
-
-class Main {
-
-  static void main() {
-    Solution solution = new Solution();
-    int[] array = {1, 2, 3, 1};
-    int res = solution.findPeakElement(array);
-    assertThat(res).isEqualTo(2);
   }
 }
