@@ -1,7 +1,5 @@
 package com.yk.faang.leetcode.l0048_rotate_image;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * https://leetcode.com/problems/rotate-image/
  * <p>
@@ -11,10 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
  * <p>
- * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate
- * another 2D matrix and do the rotation.
+ * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
  */
-class Solution2 {
+class Solution2 implements ISolution {
 
   // This solution is not optimal. It uses a buffer of size n.
   // Use layers. Copy first row of the layer into a buffer.
@@ -23,6 +20,7 @@ class Solution2 {
   // Then we copy right column of the layer into the lower column of the layer.
   // Then copy the buffer into the right column of the layer.
   // Then use another layer and repeat this for all the layers.
+  @Override
   public void rotate(int[][] matrix) {
     if (matrix.length <= 1) {
       return;
@@ -50,9 +48,8 @@ class Solution2 {
 
   private void copyArray(final int[] source, final int[] destination, final int startPosition,
       final int elementsNumber) {
-    for (int i = 0; i < elementsNumber; i++) {
-      destination[i] = source[startPosition + i];
-    }
+    if (elementsNumber >= 0)
+      System.arraycopy(source, startPosition + 0, destination, 0, elementsNumber);
   }
 
   private void copyArrayIntoColumn(final int[][] matrix, final int[] array, final int column, final int start,
@@ -81,29 +78,5 @@ class Solution2 {
     for (int i = 0; i < nElements; i++) {
       matrix[start + i][column] = matrix[row][start + i];
     }
-  }
-}
-
-class Main2 {
-
-  static void main() {
-    Solution2 solution2 = new Solution2();
-    // @formatter:off
-    int[][] matrix = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-    // @formatter:on
-
-    solution2.rotate(matrix);
-
-    // @formatter:off
-    assertThat(matrix).isEqualTo(new int[][]{
-        {7, 4, 1},
-        {8, 5, 2},
-        {9, 6, 3}
-    });
-    // @formatter:on
   }
 }

@@ -1,7 +1,5 @@
 package com.yk.faang.leetcode.l0048_rotate_image;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * https://leetcode.com/problems/rotate-image/
  * <p>
@@ -11,13 +9,13 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
  * <p>
- * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate
- * another 2D matrix and do the rotation.
+ * You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.
  */
-class Solution {
+class Solution implements ISolution {
 
   // Transform the matrix, so rows become columns and columns become rows.
   // Swap row[i] with row[n - 1 - i].
+  @Override
   public void rotate(int[][] matrix) {
     transform(matrix);
     swapColumns(matrix);
@@ -44,30 +42,5 @@ class Solution {
         matrix[i][rightColumnIndex] = tmp;
       }
     }
-  }
-}
-
-class Main {
-
-  static void main() {
-    Solution solution = new Solution();
-
-    // @formatter:off
-    int[][] matrix = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-    // @formatter:on
-
-    solution.rotate(matrix);
-
-    // @formatter:off
-    assertThat(matrix).isEqualTo(new int[][]{
-        {7, 4, 1},
-        {8, 5, 2},
-        {9, 6, 3}
-    });
-    // @formatter:on
   }
 }

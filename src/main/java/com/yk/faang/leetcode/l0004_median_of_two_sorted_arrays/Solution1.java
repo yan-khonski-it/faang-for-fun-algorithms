@@ -1,7 +1,5 @@
 package com.yk.faang.leetcode.l0004_median_of_two_sorted_arrays;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * https://leetcode.com/problems/median-of-two-sorted-arrays/
  * <p>
@@ -13,19 +11,19 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * This is an improved version of {@link Solution2}.
  */
-@SuppressWarnings("ALL")
-class Solution1 {
+class Solution1 implements ISolution {
 
+  @Override
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-     if (nums1.length == 0) {
-         return median(nums2);
-     } else if (nums2.length == 0) {
-         return median(nums1);
-     } else if (nums1.length == 1 && nums2.length == 1) {
-         return average(nums1[0], nums2[0]);
-     }
+    if (nums1.length == 0) {
+      return median(nums2);
+    } else if (nums2.length == 0) {
+      return median(nums1);
+    } else if (nums1.length == 1 && nums2.length == 1) {
+      return average(nums1[0], nums2[0]);
+    }
 
-     // O(n + m)
+    // O(n + m)
     // Similar to merge two sorted array, but we just check elements.
     int totalSize = nums1.length + nums2.length;
     boolean totalSizeEven = totalSize % 2 == 0;
@@ -84,17 +82,3 @@ class Solution1 {
   }
 }
 
-@SuppressWarnings("DuplicatedCode")
-class Main1 {
-
-  static void main() {
-    Solution1 solution1 = new Solution1();
-    int[] array1 = {1, 2};
-    int[] array2 = {3};
-    int[] array3 = {3, 4};
-    double median1 = solution1.findMedianSortedArrays(array1, array2);
-    assertThat(median1).isEqualTo(2.0);
-    double median2 = solution1.findMedianSortedArrays(array1, array3);
-    assertThat(median2).isEqualTo(2.5);
-  }
-}

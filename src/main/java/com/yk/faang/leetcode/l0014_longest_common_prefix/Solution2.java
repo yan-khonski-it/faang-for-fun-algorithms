@@ -1,24 +1,17 @@
 package com.yk.faang.leetcode.l0014_longest_common_prefix;
 
-import static com.yk.faang.utils.TimeUtils.withTimerMs;
-import static org.assertj.core.api.Assertions.assertThat;
-
-import com.yk.faang.utils.TestCaseUtils;
-
 /**
  * https://leetcode.com/problems/longest-common-prefix/description/
  * <p>
  * 14. Longest Common Prefix
  * <p>
- * Write a function to find the longest common prefix string amongst an array of strings. If there
- * is no common prefix, return an empty string "".
+ * Write a function to find the longest common prefix string amongst an array of strings. If there is no common prefix, return an empty string "".
  * <p>
- * This approach is simple brute force. But we start with the shortest string as prefix.
- * Then check if all if following strings contain part of it.
+ * This approach is simple brute force. But we start with the shortest string as prefix. Then check if all if following strings contain part of it.
  */
-@SuppressWarnings("DuplicatedCode")
-public class Solution2 {
+public class Solution2 implements ISolution {
 
+  @Override
   public String longestCommonPrefix(String[] strs) {
     if (strs == null || strs.length == 0) {
       return "";
@@ -49,20 +42,5 @@ public class Solution2 {
     }
 
     return shortestString;
-  }
-}
-
-
-@SuppressWarnings("DuplicatedCode")
-class Main2 {
-
-  static void main() {
-    Solution2 solution = new Solution2();
-    String prefix1 = solution.longestCommonPrefix(new String[]{"flower", "flow", "flight"});
-    assertThat(prefix1).isEqualTo("fl");
-
-    String[] testCase0Strings = TestCaseUtils.readLines("test_cases/longest_common_prefix/test01.txt").toArray(new String[0]);
-    String prefix2 = withTimerMs(() -> solution.longestCommonPrefix(testCase0Strings), "longestCommonPrefix(testCase0Strings)");
-    assertThat(prefix2).isEqualTo("fl");
   }
 }

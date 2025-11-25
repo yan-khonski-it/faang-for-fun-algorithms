@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 /**
  * Used to measure time for various tests.
  */
-@SuppressWarnings("LoggingSimilarMessage")
 public class TimeUtils {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(TimeUtils.class);
@@ -46,6 +45,36 @@ public class TimeUtils {
     long endNs = System.nanoTime();
     long totalMs = toMilliseconds(endNs, startNs);
     LOGGER.info("label: {} Time ms: {}.", label, totalMs);
+  }
+
+  public static <T> T withTimerNs(Callable<T> callable, String label) {
+    long startNs = System.nanoTime();
+    T result;
+
+    try {
+      result = callable.call();
+    } catch (Exception e) {
+      throw new RuntimeException(format("Failed to call callable. Label: %s.", label), e);
+    }
+
+    long endNs = System.nanoTime();
+    long totalNs = endNs - startNs;
+    LOGGER.info("label: {} Time ns: {}.", label, totalNs);
+    return result;
+  }
+
+  public static void withTimerNs(Runnable runnable, String label) {
+    long startNs = System.nanoTime();
+
+    try {
+      runnable.run();
+    } catch (Exception e) {
+      throw new RuntimeException(format("Failed to run runnable. Label: %s.", label), e);
+    }
+
+    long endNs = System.nanoTime();
+    long totalNs = endNs - startNs;
+    LOGGER.info("label: {} Time ns: {}.", label, totalNs);
   }
 
   private static long toMilliseconds(long endNs, long startNs) {

@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 // TODO - fix it, this solution is broken
 @SuppressWarnings("PMD.LooseCoupling")
@@ -135,19 +133,5 @@ class Solution {
     }
 
     return -1;
-  }
-}
-
-class Main {
-
-  static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
-
-  static void main() {
-    Solution solution = new Solution();
-    String haystack = "bbbbababbbaabbba";
-    String needle = "abb";
-    int expectedIndex = haystack.indexOf(needle);
-    int index = solution.strStr(haystack, needle);
-    LOGGER.info("expectedIndex: {}. Actual index: {}.", expectedIndex, index);
   }
 }

@@ -1,30 +1,14 @@
 package com.yk.faang.leetcode.l0054_spiral_matrix;
 
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
-
 import java.util.ArrayList;
 import java.util.List;
-
-enum Direction {
-
-  RIGHT,
-  DOWN,
-  LEFT,
-  UP;
-
-  private static final Direction[] vals = values();
-
-  public Direction next() {
-    return vals[(ordinal() + 1) % vals.length];
-  }
-}
 
 /**
  * 54. Spiral Matrix
  * <p>
  * Given an m x n matrix, return all elements of the matrix in spiral order.
  */
-public class Solution2 {
+public class Solution2 implements ISolution {
 
   private List<Integer> res;
   private int rows;
@@ -38,6 +22,7 @@ public class Solution2 {
   private Direction direction = Direction.RIGHT;
 
 
+  @Override
   public List<Integer> spiralOrder(int[][] matrix) {
     this.rows = matrix.length;
     if (rows == 0) {
@@ -133,24 +118,15 @@ public class Solution2 {
 
     return res;
   }
-}
 
-class Main2 {
+  @Override
+  public void reset() {
+    res = null;
 
-  static void main() {
-    Solution2 solution21 = new Solution2();
-    int[][] matrix1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-    List<Integer> spiral1 = solution21.spiralOrder(matrix1);
-    assertThat(spiral1).isEqualTo(List.of(1, 2, 3, 6, 9, 8, 7, 4, 5));
-
-    Solution2 solution22 = new Solution2();
-    int[][] matrix2 = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-    List<Integer> spiral2 = solution22.spiralOrder(matrix2);
-    assertThat(spiral2).isEqualTo(List.of(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7));
-
-    Solution2 solution23 = new Solution2();
-    int[][] matrix3 = {{2, 3, 4}, {5, 6, 7}, {8, 9, 10}, {11, 12, 13}};
-    List<Integer> spiral3 = solution23.spiralOrder(matrix3);
-    assertThat(spiral3).isEqualTo(List.of(2, 3, 4, 7, 10, 13, 12, 11, 8, 5, 6, 9));
+    minRow = 0;
+    minColumn = 0;
+    currentRow = minRow;
+    currentColumn = minColumn;
+    direction = Direction.RIGHT;
   }
 }

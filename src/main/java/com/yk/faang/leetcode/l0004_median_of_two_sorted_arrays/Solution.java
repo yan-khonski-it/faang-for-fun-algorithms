@@ -1,7 +1,5 @@
 package com.yk.faang.leetcode.l0004_median_of_two_sorted_arrays;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * https://leetcode.com/problems/median-of-two-sorted-arrays/
  * <p>
@@ -13,9 +11,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <p>
  * This is an improved version of {@link Solution2}.
  */
-@SuppressWarnings("ALL")
-class Solution {
+class Solution implements ISolution {
 
+  @Override
   public double findMedianSortedArrays(int[] nums1, int[] nums2) {
     if (nums1.length == 0) {
       return median(nums2);
@@ -84,20 +82,5 @@ class Solution {
 
   private double average(int a, int b) {
     return ((double) a + b) / 2;
-  }
-}
-
-@SuppressWarnings("ALL")
-class Main {
-
-  static void main() {
-    Solution solution = new Solution();
-    int[] array1 = {1, 2};
-    int[] array2 = {3};
-    int[] array3 = {3, 4};
-    double median1 = solution.findMedianSortedArrays(array1, array2);
-    assertThat(median1).isEqualTo(2.0);
-    double median2 = solution.findMedianSortedArrays(array1, array3);
-    assertThat(median2).isEqualTo(2.5);
   }
 }
