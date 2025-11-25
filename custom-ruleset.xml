@@ -9,14 +9,25 @@
   <rule ref="category/java/security.xml"/>
 
   <rule ref="category/java/design.xml/SimplifiedTernary"/>
-  <rule ref="category/java/errorprone.xml/AvoidDecimalLiteralsInBigDecimalConstructor"/>
-  <rule ref="category/java/bestpractices.xml/UnusedLocalVariable"/>
-  <rule ref="category/java/bestpractices.xml/UnusedPrivateField"/>
+
   <rule ref="category/java/codestyle.xml/ShortMethodName">
     <properties>
       <property name="minimum" value="2"/>
     </properties>
   </rule>
+
+  <rule ref="category/java/errorprone.xml">
+    <exclude name="AvoidLiteralsInIfCondition"/>
+    <exclude name="AvoidDuplicateLiterals" />
+    <exclude name="NullAssignment" />
+    <exclude name="AvoidDuplicateLiterals" />
+    <exclude name="AvoidFieldNameMatchingMethodName" />
+    <exclude name="UseProperClassLoader" />
+
+    <!-- Use in LinkedList -->
+    <exclude name="CompareObjectsWithEquals" />
+  </rule>
+
 
   <!-- https://github.com/pmd/pmd/blob/master/pmd-java/src/main/resources/rulesets/java/basic.xml -->
   <!-- https://github.com/pmd/pmd/blob/master/pmd-core/src/main/resources/rulesets/internal/all-java.xml -->
@@ -25,6 +36,7 @@
     <exclude name="MethodReturnsInternalArray"/>
     <exclude name="ArrayIsStoredDirectly" />
     <exclude name="ForLoopCanBeForeach" />
+    <exclude name="GuardLogStatement" />
   </rule>
 
   <!-- https://maven.apache.org/plugins/maven-pmd-plugin/examples/usingRuleSets.html -->
