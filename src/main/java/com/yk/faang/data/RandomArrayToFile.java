@@ -1,11 +1,6 @@
 package com.yk.faang.data;
 
 
-import static com.yk.faang.utils.ArrayUtils.areArraysEqual;
-import static com.yk.faang.utils.ArrayUtils.readArrayFromBinaryFile;
-import static com.yk.faang.utils.ArrayUtils.readArrayFromTextFile;
-import static com.yk.faang.utils.ArrayUtils.writeArrayToBinaryFile;
-import static com.yk.faang.utils.ArrayUtils.writeArrayToTextFile;
 import static com.yk.faang.utils.TimeUtils.withTimerMs;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -32,16 +27,16 @@ public class RandomArrayToFile {
 
     int[] array = ArrayUtils.generateRandomArray(n, maxNumber);
 
-    withTimerMs(() -> writeArrayToTextFile(array, ARRAY_TEXT_FILE), "Write int array as text into text file.");
-    withTimerMs(() -> writeArrayToBinaryFile(array, ARRAY_BINARY_FILE), "Write bytes into binary file.");
+    withTimerMs(() -> ArrayUtils.writeArrayToTextFile(array, ARRAY_TEXT_FILE), "Write int array as text into text file.");
+    withTimerMs(() -> ArrayUtils.writeArrayToBinaryFile(array, ARRAY_BINARY_FILE), "Write bytes into binary file.");
 
-    int[] arrayFromTextFile = withTimerMs(() -> readArrayFromTextFile(ARRAY_TEXT_FILE), "Read int array from text file.");
-    int[] arrayFromBinaryFile = withTimerMs(() -> readArrayFromBinaryFile(ARRAY_BINARY_FILE), "Read int array from binary file.");
+    int[] arrayFromTextFile = withTimerMs(() -> ArrayUtils.readArrayFromTextFile(ARRAY_TEXT_FILE), "Read int array from text file.");
+    int[] arrayFromBinaryFile = withTimerMs(() -> ArrayUtils.readArrayFromBinaryFile(ARRAY_BINARY_FILE), "Read int array from binary file.");
 
-    boolean arrayFromTextFileIsCorrect = areArraysEqual(array, arrayFromTextFile);
+    boolean arrayFromTextFileIsCorrect = ArrayUtils.areArraysEqual(array, arrayFromTextFile);
     assertThat(arrayFromTextFileIsCorrect).isTrue();
 
-    boolean arrayFromBinaryFileIsCorrect = areArraysEqual(array, arrayFromBinaryFile);
+    boolean arrayFromBinaryFileIsCorrect = ArrayUtils.areArraysEqual(array, arrayFromBinaryFile);
     assertThat(arrayFromBinaryFileIsCorrect).isTrue();
   }
 

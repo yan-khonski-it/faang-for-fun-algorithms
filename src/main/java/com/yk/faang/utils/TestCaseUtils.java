@@ -10,12 +10,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("PMD.TestClassWithoutTestCases")
 public final class TestCaseUtils {
 
   private TestCaseUtils() {
     throw new AssertionError("Instance is not allowed.");
   }
 
+  @SuppressWarnings("PMD.CloseResource")
   public static List<String> readLines(String filename) {
     ClassLoader classLoader = TestCaseUtils.class.getClassLoader();
     InputStream classLoaderResourceAsStream = classLoader.getResourceAsStream(filename);
@@ -31,7 +33,7 @@ public final class TestCaseUtils {
     ) {
       return br.lines().collect(Collectors.toList());
     } catch (IOException e) {
-      throw new RuntimeException("Failed to read a resource file", e);
+      throw new RuntimeException(format("Failed to open input stream from class loader to resource: %s.", filename), e);
     }
   }
 
