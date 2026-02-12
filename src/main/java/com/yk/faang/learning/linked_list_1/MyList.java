@@ -1,4 +1,4 @@
-package com.yk.faang.learning.linked_list;
+package com.yk.faang.learning.linked_list_1;
 
 import java.util.List;
 import org.assertj.core.util.VisibleForTesting;

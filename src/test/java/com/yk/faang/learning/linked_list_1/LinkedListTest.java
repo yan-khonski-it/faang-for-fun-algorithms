@@ -1,4 +1,4 @@
-package com.yk.faang.learning.linked_list;
+package com.yk.faang.learning.linked_list_1;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,13 +11,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-class LinkedList1Test {
-
-  private static final List<MyList> MY_LISTS = List.of(new LinkedList1());
+class LinkedListTest {
 
   private static Stream<Arguments> getMyLists() {
     return Stream.of(
-        Arguments.of(new LinkedList1())
+        Arguments.of(new LinkedList1()),
+        Arguments.of(new LinkedList2())
     );
   }
 
@@ -136,6 +135,16 @@ class LinkedList1Test {
 
     actual = list.toList();
     assertThat(actual).containsExactly(1, 2, 22, 3, 4);
+
+    // Previous bug
+    tail = list.getTail();
+    Node copyTail = tail;
+
+    list.addNodeAfter(tail, 5);
+    actual = list.toList();
+    assertThat(actual).containsExactly(1, 2, 22, 3, 4, 5);
+    assertThat(copyTail.next).isSameAs(list.getTail());
+
   }
 
   @MethodSource("getMyLists")
