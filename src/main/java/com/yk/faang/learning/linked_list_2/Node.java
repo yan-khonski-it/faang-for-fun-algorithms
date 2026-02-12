@@ -1,10 +1,11 @@
-package com.yk.faang.learning.linked_list_1;
+package com.yk.faang.learning.linked_list_2;
 
 import org.assertj.core.util.VisibleForTesting;
 
 public class Node {
 
   final int value;
+  Node prev;
   Node next;
 
   Node(int value) {

@@ -1,34 +1,43 @@
-package com.yk.faang.learning.linked_list_1;
+package com.yk.faang.learning.linked_list_2;
 
 import java.util.ArrayList;
 
 /**
- * Singly linked list with Dummy nodes.
+ * Double linked list with Dummy nodes.
  */
 public class LinkedList2 implements MyList {
 
-  private Node head = new Node(0);
-  private Node tail = head;
+  private final Node head = new Node(0);
+  private final Node tail = new Node(0);
   private int size;
+
+  public LinkedList2() {
+    head.next = tail;
+    tail.prev = head;
+  }
 
   @Override
   public void add(int value) {
-    tail.next = new Node(value);
-    tail = tail.next;
+    Node prevNode = tail.prev;
+    Node inserted = new Node(value);
+
+    inserted.prev = prevNode;
+    prevNode.next = inserted;
+
+    inserted.next = tail;
+    tail.prev = inserted;
+
     size++;
   }
 
   @Override
   public void addNewHead(int value) {
+    Node nextNode = head.next;
     Node inserted = new Node(value);
-    Node next = head.next;
     head.next = inserted;
-    inserted.next = next;
-
-    if (tail == head) {
-      tail = inserted;
-      return;
-    }
+    inserted.prev = head;
+    inserted.next = nextNode;
+    nextNode.prev = inserted;
 
     size++;
   }
@@ -42,30 +51,19 @@ public class LinkedList2 implements MyList {
       return;
     }
 
-    if (node == head) {
-      throw new IllegalArgumentException("Cannot remove a dummy head node.");
+    if (node == head || node == tail) {
+      throw new IllegalArgumentException("Cannot remove a dummy node.");
     }
 
-    Node previous = head;
-    Node current = head.next;
-    while (current != null) {
-      if (current == node) {
-        break;
-      }
+    Node prevNode = node.prev;
+    Node nextNode = node.next;
 
-      previous = current;
-      current = current.next;
-    }
+    prevNode.next = nextNode;
+    nextNode.prev = prevNode;
 
-    if (current == null) {
-      throw new IllegalArgumentException("We could not find the node in the list.");
-    }
-
-    previous.next = current.next;
-
-    if (node == tail) {
-      tail = previous;
-    }
+    // clean up for GC
+    node.prev = null;
+    node.next = null;
 
     size--;
   }
@@ -79,34 +77,28 @@ public class LinkedList2 implements MyList {
 
     Node inserted = new Node(newValue);
     Node nextNode = node.next;
+
     node.next = inserted;
+    inserted.prev = node;
     inserted.next = nextNode;
+    nextNode.prev = inserted;
     size++;
   }
 
   @Override
   public void addNodeBefore(Node node, int newValue) {
     if (head == node) {
-      throw new IllegalArgumentException("Cannot add a dummy head node.");
+      addNewHead(newValue);
+      return;
     }
 
-    Node previous = head;
-    Node current = head.next;
-
-    while (current != null) {
-      if (current == node) {
-        break;
-      }
-
-      previous = current;
-      current = current.next;
-    }
-
+    Node prevNode = node.prev;
     Node inserted = new Node(newValue);
-    // previous is not null, otherwiese, the node is head, which is handled before.
-    //noinspection ReassignedVariable,DataFlowIssue
-    previous.next = inserted;
-    inserted.next = current;
+    prevNode.next = inserted;
+    inserted.prev = prevNode;
+    inserted.next = node;
+    node.prev = inserted;
+
     size++;
   }
 
@@ -124,7 +116,7 @@ public class LinkedList2 implements MyList {
   public java.util.List<Integer> toList() {
     java.util.List<Integer> res = new ArrayList<>(size);
     Node current = head.next;
-    while (current != null) {
+    while (current != tail) {
       res.add(current.value);
       current = current.next;
     }
@@ -134,17 +126,11 @@ public class LinkedList2 implements MyList {
 
   @Override
   public Node getHead() {
-    // We do not want to return a dummy node.
     return head.next;
   }
 
   @Override
   public Node getTail() {
-    // We do not want to return a dummy node.
-    if (tail == head) {
-      return head.next;
-    }
-
-    return tail;
+    return tail.prev;
   }
 }

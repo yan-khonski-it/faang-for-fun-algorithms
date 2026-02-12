@@ -1,9 +1,9 @@
-package com.yk.faang.learning.linked_list_1;
+package com.yk.faang.learning.linked_list_2;
 
 import java.util.ArrayList;
 
 /**
- * Singly linked list.
+ * Double linked list.
  */
 public class LinkedList1 implements MyList {
 
@@ -20,23 +20,27 @@ public class LinkedList1 implements MyList {
       return;
     }
 
-    tail.next = new Node(value);
-    tail = tail.next;
+    Node inserted = new Node(value);
+    tail.next = inserted;
+    inserted.prev = tail;
+    tail = inserted;
+
     size++;
   }
 
   @Override
   public void addNewHead(int value) {
-    Node node = new Node(value);
+    Node inserted = new Node(value);
     if (head == null) {
-      head = node;
-      tail = node;
+      head = inserted;
+      tail = inserted;
       size++;
       return;
     }
 
-    node.next = head;
-    head = node;
+    inserted.next = head;
+    head.prev = inserted;
+    head = inserted;
     size++;
   }
 
@@ -49,30 +53,25 @@ public class LinkedList1 implements MyList {
       return;
     }
 
-    Node previous = null;
-    Node current = head;
-    while (current != null) {
-      if (current == node) {
-        break;
-      }
-
-      previous = current;
-      current = current.next;
-    }
-
-    if (current == null) {
-      throw new IllegalArgumentException("We could not find the node in the list.");
-    }
-
-    if (previous == null) {
-      head = current.next;
-    } else {
-      previous.next = current.next;
+    if (node == head) {
+      removeHead();
+      return;
     }
 
     if (node == tail) {
-      tail = previous;
+      removeTail();
+      return;
     }
+
+    Node prev = node.prev;
+    Node next = node.next;
+
+    prev.next = next;
+    next.prev = prev;
+
+    // clean up for GC
+    node.prev = null;
+    node.next = null;
 
     size--;
   }
@@ -87,7 +86,9 @@ public class LinkedList1 implements MyList {
     Node inserted = new Node(newValue);
     Node nextNode = node.next;
     node.next = inserted;
+    inserted.prev = node;
     inserted.next = nextNode;
+    nextNode.prev = inserted;
     size++;
   }
 
@@ -98,24 +99,42 @@ public class LinkedList1 implements MyList {
       return;
     }
 
-    Node previous = null;
-    Node current = head;
+    Node inserted = new Node(newValue);
+    Node prevNode = node.prev;
 
-    while (current != null) {
-      if (current == node) {
-        break;
-      }
+    prevNode.next = inserted;
+    inserted.prev = prevNode;
+    inserted.next = node;
+    node.prev = inserted;
+    size++;
+  }
 
-      previous = current;
-      current = current.next;
+  private void removeHead() {
+    Node nextNode = head.next;
+    if (nextNode == null) {
+      head = null;
+      tail = null;
+    } else {
+      nextNode.prev = null;
+      head.next = null;
+      head = nextNode;
     }
 
-    Node inserted = new Node(newValue);
-    // previous is not null, otherwiese, the node is head, which is handled before.
-    //noinspection ReassignedVariable,DataFlowIssue
-    previous.next = inserted;
-    inserted.next = current;
-    size++;
+    size--;
+  }
+
+  private void removeTail() {
+    Node prevNode = tail.prev;
+    if (prevNode == null) {
+      head = null;
+      tail = null;
+    } else {
+      prevNode.next = null;
+      tail.prev = null;
+      tail = prevNode;
+    }
+
+    size--;
   }
 
   @Override
