@@ -8,14 +8,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 // Can be used for debugging.
 @SuppressWarnings("unused")
 public final class DebugUtils {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(DebugUtils.class);
+  private static final Logger LOGGER = LogManager.getLogger(DebugUtils.class);
 
   private DebugUtils() {
     throw new AssertionError("Instance is not allowed.");

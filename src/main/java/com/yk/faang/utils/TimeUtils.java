@@ -3,15 +3,15 @@ package com.yk.faang.utils;
 import static java.lang.String.format;
 
 import java.util.concurrent.Callable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Used to measure time for various tests.
  */
 public class TimeUtils {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(TimeUtils.class);
+  private static final Logger LOGGER = LogManager.getLogger(TimeUtils.class);
 
   private TimeUtils() {
     throw new AssertionError("Instance is not allowed.");

@@ -1,7 +1,7 @@
 package com.yk.faang.meta_practice.billion_users;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * https://www.facebookrecruiting.com/portal/coding_practice_question/?problem_id=951929261870357&ppid=454615229006519&practice_plan=0
@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
  */
 class Main {
 
-  static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+  static final Logger LOGGER = LogManager.getLogger(Main.class);
 
   private static final double BILLION_USERS = 1_000_000_000;
   // These are the tests we use to determine if the solution is correct.

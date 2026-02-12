@@ -16,8 +16,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Runs all main methods from all packages.
@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MainRunner {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(MainRunner.class);
+  private static final Logger LOGGER = LogManager.getLogger(MainRunner.class);
 
   private static final Set<String> EXCLUDED_CLASSES = Set.of(
       // Exclude the current class, because it is run as the entry point.

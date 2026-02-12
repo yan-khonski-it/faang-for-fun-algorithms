@@ -2,20 +2,16 @@ package com.yk.faang.leetcode.l0281_zigzag_iterator;
 
 import java.util.Iterator;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * https://leetcode.com/problems/zigzag-iterator/
  * <p>
- * Given two vectors of integers v1 and v2, implement an iterator to return their elements
- * alternately.
+ * Given two vectors of integers v1 and v2, implement an iterator to return their elements alternately.
  * <p>
  * Implement the ZigzagIterator class:
  * <p>
- * ZigzagIterator(List<int> v1, List<int> v2) initializes the object with the two vectors v1 and v2.
- * boolean hasNext() returns true if the iterator still has elements, and false otherwise. int
- * next() returns the current element of the iterator and moves the iterator to the next element.
+ * ZigzagIterator(List<int> v1, List<int> v2) initializes the object with the two vectors v1 and v2. boolean hasNext() returns true if the iterator still has
+ * elements, and false otherwise. int next() returns the current element of the iterator and moves the iterator to the next element.
  */
 @SuppressWarnings("PMD.UnusedAssignment")
 public class ZigzagIterator {
@@ -78,18 +74,5 @@ public class ZigzagIterator {
     }
 
     return current.iterator.hasNext();
-  }
-}
-
-class Main {
-
-  static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
-
-  static void main() {
-    ZigzagIterator zigzagIterator = new ZigzagIterator(List.of(1, 2), List.of(3, 4, 5, 6));
-    while (zigzagIterator.hasNext()) {
-      Integer value = zigzagIterator.next();
-      LOGGER.info("{} ", value);
-    }
   }
 }

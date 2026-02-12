@@ -1,11 +1,11 @@
 package com.yk.faang.algorithms.find_the_index_of_the_first_occurrence_in_a_string;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Main {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+  private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
   static void main() {
     Solution solution = new Solution();

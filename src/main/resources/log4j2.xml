@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="ConsoleAppender" target="SYSTEM_OUT">
+      <PatternLayout charset="UTF-8">
+        pattern="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} – %msg%n"
+      </PatternLayout>
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="WARN">
+      <AppenderRef ref="ConsoleAppender"/>
+    </Root>
+    <logger name="com.yk.faang" level="INFO" additivity="false">
+      <AppenderRef ref="ConsoleAppender"/>
+    </logger>
+  </Loggers>
+</Configuration>
