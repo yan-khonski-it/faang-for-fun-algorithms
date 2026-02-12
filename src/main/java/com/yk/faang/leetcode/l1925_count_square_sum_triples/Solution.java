@@ -1,7 +1,5 @@
 package com.yk.faang.leetcode.l1925_count_square_sum_triples;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * https://leetcode.com/problems/count-square-sum-triples/
  * <p>
@@ -34,14 +32,5 @@ class Solution {
     }
 
     return count;
-  }
-}
-
-class Main {
-
-  static void main() {
-    Solution solution = new Solution();
-    int res = solution.countTriples(5);
-    assertThat(res).isEqualTo(2);
   }
 }

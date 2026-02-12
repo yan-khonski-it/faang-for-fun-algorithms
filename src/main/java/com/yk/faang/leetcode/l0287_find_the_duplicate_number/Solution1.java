@@ -1,18 +1,16 @@
 package com.yk.faang.leetcode.l0287_find_the_duplicate_number;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * https://leetcode.com/problems/find-the-duplicate-number/submissions/
  * <p>
  * 287. Find the Duplicate Number
  * <p>
- * Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive. There
- * is only one repeated number in nums, return this repeated number. You must solve the problem without modifying the
- * array nums and uses only constant extra space.
+ * Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive. There is only one repeated number in nums,
+ * return this repeated number. You must solve the problem without modifying the array nums and uses only constant extra space.
  */
-class Solution1 {
+class Solution1 implements FindDuplicates {
 
+  @Override
   public int findDuplicate(int[] nums) {
     // Dirichlet principle - n + 1 boxes, n or less numbers - at least one number is repeated
     // find middle element (even if it is not present), count elements smaller than middle smallerThanMiddleCount.
@@ -42,16 +40,5 @@ class Solution1 {
     }
 
     return start;
-  }
-}
-
-class Main1 {
-
-  static void main() {
-    Solution1 solution1 = new Solution1();
-    // The test {2,2,2,2,2} does not work. https://leetcode.com/submissions/detail/679175876/
-    int[] array = {1, 2, 2, 4, 3};
-    int res = solution1.findDuplicate(array);
-    assertThat(res).isEqualTo(2);
   }
 }

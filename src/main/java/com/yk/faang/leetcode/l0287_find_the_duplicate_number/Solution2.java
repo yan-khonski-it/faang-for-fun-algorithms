@@ -1,15 +1,13 @@
 package com.yk.faang.leetcode.l0287_find_the_duplicate_number;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 /**
  * If there could be only 2 duplicates, this solution would work.
  * <p>
- * Using arithmetical progression, counting the expected sum of n elements. Using sum of all elements, - actual sum.
- * Returning actual sum - expected sum.
+ * Using arithmetical progression, counting the expected sum of n elements. Using sum of all elements, - actual sum. Returning actual sum - expected sum.
  */
-class Solution2 {
+class Solution2 implements FindDuplicates {
 
+  @Override
   public int findDuplicate(int[] nums) {
     // arithmetic progression - expected sum
     // actual sum
@@ -28,15 +26,5 @@ class Solution2 {
     }
 
     return res;
-  }
-}
-
-class Main {
-
-  static void main() {
-    Solution2 solution2 = new Solution2();
-    int[] array = {1, 2, 3, 3, 4, 5};
-    int res = solution2.findDuplicate(array);
-    assertThat(res).isEqualTo(3);
   }
 }
