@@ -22,7 +22,7 @@ public class GraphMatrix implements Dijkstra {
     // O(n^2) Dijkstra (no priority queue)
     for (int iteration = 0; iteration < size; iteration++) {
       // pick the unused vertex with smallest dist
-      int vertex = getNearestUnusedNeighbor(iteration, distances, used);
+      int vertex = getNearestUnusedNeighbor(distances, used);
       if (vertex == -1) {
         break; // remaining nodes are unreachable
       }
@@ -46,7 +46,7 @@ public class GraphMatrix implements Dijkstra {
     return distances;
   }
 
-  private int getNearestUnusedNeighbor(int src, int[] distances, boolean[] used) {
+  private int getNearestUnusedNeighbor(int[] distances, boolean[] used) {
     int vertex = -1;
     int minDistance = INF;
 

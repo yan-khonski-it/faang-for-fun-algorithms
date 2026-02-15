@@ -7,6 +7,7 @@ import java.util.PriorityQueue;
 /**
  * Directed graph is presented as a adjacency list.
  */
+@SuppressWarnings("PMD.LooseCoupling") // PriorityQueue
 public class GraphList implements Dijkstra {
 
   private final List<List<Edge>> edges;

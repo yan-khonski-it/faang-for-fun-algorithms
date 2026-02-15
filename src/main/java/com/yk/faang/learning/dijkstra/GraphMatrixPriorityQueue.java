@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 /**
  * Directed graph is presented as a matrix. 0 means no edge, other values are weights.
  */
+@SuppressWarnings("PMD.LooseCoupling") // PriorityQueue
 public class GraphMatrixPriorityQueue implements Dijkstra {
 
   private final int[][] matrix;
