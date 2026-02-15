@@ -26,23 +26,25 @@ public class MyLinearArraySet implements MySet {
   }
 
   @Override
-  public void add(int value) {
+  public boolean add(int value) {
     if (isFull()) {
       throw new IllegalStateException("The set is full");
     }
 
     if (contains(value)) {
-      return;
+      return false;
     }
 
     array[size] = value;
     size++;
+
+    return true;
   }
 
   @Override
-  public void remove(int value) {
+  public boolean remove(int value) {
     if (isEmpty()) {
-      return;
+      return false;
     }
 
     for (int i = 0; i < size; i++) {
@@ -50,9 +52,11 @@ public class MyLinearArraySet implements MySet {
       if (array[i] == value) {
         array[i] = array[size - 1];
         size--;
-        return;
+        return true;
       }
     }
+
+    return false;
   }
 
   @Override

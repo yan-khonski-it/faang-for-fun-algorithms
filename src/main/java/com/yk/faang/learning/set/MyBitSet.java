@@ -25,9 +25,11 @@ public class MyBitSet implements MySet {
   }
 
   @Override
-  public void add(int value) {
-    if (value > n) {
-      throw new IllegalArgumentException(format("Max allowed value is N: %s, but you are inserting value: %s.", n, value));
+  public boolean add(int value) {
+    validate(value);
+
+    if (contains(value)) {
+      return false;
     }
 
     if (isFull()) {
@@ -36,25 +38,32 @@ public class MyBitSet implements MySet {
 
     bitSet.set(value);
     size++;
+
+    return true;
   }
 
   @Override
-  public void remove(int value) {
-    if (value > n) {
-      throw new IllegalArgumentException(format("Max allowed value is N: %s, but you are removing value: %s.", n, value));
-    }
+  public boolean remove(int value) {
+    validate(value);
 
     if (isEmpty()) {
-      return;
+      return false;
+    }
+
+    if (!contains(value)) {
+      return false;
     }
 
     bitSet.clear(value);
     size--;
+
+    return true;
   }
 
   @Override
   public boolean contains(int value) {
-    return false;
+    validate(value);
+    return bitSet.get(value);
   }
 
   @Override
@@ -82,13 +91,23 @@ public class MyBitSet implements MySet {
   public int[] toArray() {
     int[] res = new int[size];
     int index = 0;
-    for (int i = 0; i <= n; i++) {
-      if (bitSet.get(i)) {
-        res[index] = i;
-        index++;
+
+    for (int i = bitSet.nextSetBit(0); i >= 0; i = bitSet.nextSetBit(i + 1)) {
+      // operate on index i here
+      res[index] = i;
+      index++;
+
+      if (i == Integer.MAX_VALUE) {
+        break; // or (i+1) would overflow
       }
     }
 
     return res;
+  }
+
+  private void validate(int value) {
+    if (value > n || value <= 0) {
+      throw new IllegalArgumentException(format("Allowed value from 1 to N. value = %s", value));
+    }
   }
 }

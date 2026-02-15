@@ -2,16 +2,13 @@ package com.yk.faang.learning.set;
 
 import static java.lang.String.format;
 
+import java.util.Arrays;
+
 /**
- * Custom implementation of a set. It is an improvement of {@link MyLinearArraySet}.
- * It allows numbers from 1 to N, it always uses memory of size: O(N),
- * where N is the maximum allowed element.
+ * Custom implementation of a set. It is an improvement of {@link MyLinearArraySet}. It allows numbers from 1 to N, it always uses memory of size: O(N), where N
+ * is the maximum allowed element.
  * <p>
- * Operations time complexity:
- * contains O(1)
- * put O(1)
- * remove O(1)
- * clear O(N)
+ * Operations time complexity: contains O(1) put O(1) remove O(1) clear O(N)
  */
 public class MyArraySet implements MySet {
 
@@ -26,9 +23,11 @@ public class MyArraySet implements MySet {
   }
 
   @Override
-  public void add(int value) {
-    if (value > n) {
-      throw new IllegalArgumentException(format("Max allowed value is N: %s, but you are inserting value: %s.", n, value));
+  public boolean add(int value) {
+    validate(value);
+
+    if (contains(value)) {
+      return false;
     }
 
     if (isFull()) {
@@ -37,28 +36,31 @@ public class MyArraySet implements MySet {
 
     array[value] = value;
     size++;
+
+    return true;
   }
 
   @Override
-  public void remove(int value) {
-    if (value > n) {
-      throw new IllegalArgumentException(format("Max allowed value is N: %s, but you are removing value: %s.", n, value));
-    }
+  public boolean remove(int value) {
+    validate(value);
 
     if (isEmpty()) {
-      return;
+      return false;
+    }
+
+    if (!contains(value)) {
+      return false;
     }
 
     array[value] = 0;
     size--;
+
+    return true;
   }
 
   @Override
   public boolean contains(int value) {
-    if (value > n) {
-      throw new IllegalArgumentException(format("Max allowed value is N: %s, but you are searching for value: %s.", n, value));
-    }
-
+    validate(value);
     return array[value] != 0;
   }
 
@@ -79,10 +81,7 @@ public class MyArraySet implements MySet {
 
   @Override
   public void clear() {
-    for (int i = 0; i < size; i++) {
-      array[i] = 0;
-    }
-
+    Arrays.fill(array, 0);
     size = 0;
   }
 
@@ -98,5 +97,11 @@ public class MyArraySet implements MySet {
     }
 
     return res;
+  }
+
+  private void validate(int value) {
+    if (value > n || value <= 0) {
+      throw new IllegalArgumentException(format("Allowed value from 1 to N. value = %s", value));
+    }
   }
 }

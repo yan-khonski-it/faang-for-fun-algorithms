@@ -2,9 +2,9 @@ package com.yk.faang.learning.set;
 
 public interface MySet {
 
-  void add(int value);
+  boolean add(int value);
 
-  void remove(int value);
+  boolean remove(int value);
 
   boolean contains(int value);
 
