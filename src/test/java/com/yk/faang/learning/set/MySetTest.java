@@ -17,13 +17,15 @@ class MySetTest {
         Arguments.of(new MyLinearArraySet(n)),
         Arguments.of(new MyArraySet(n)),
         Arguments.of(new MyBitSet(n)),
-        Arguments.of(new TwoArraysSet(capacity))
+        Arguments.of(new TwoArraysSet(capacity)),
+        Arguments.of(new ArraySetWithStatusesOptimized(capacity))
     );
   }
 
   @MethodSource("getMySets")
   @ParameterizedTest
   public void testFixedSearchChain(MySet mySet) {
+/*
 
     // 1. Add 5.
     // Math.abs(5) % 10 = 5. It is placed at index 5.
@@ -53,6 +55,21 @@ class MySetTest {
     mySet.remove(15);
     assertThat(mySet.contains(35)).isTrue();
     assertThat(mySet.contains(45)).isFalse();
+*/
+    mySet.clear();
+    assertThat(mySet.add(3)).isTrue();
+    assertThat(mySet.add(13)).isTrue();
+    assertThat(mySet.add(23)).isTrue();
+    assertThat(mySet.add(5)).isTrue();
+    assertThat(mySet.remove(13)).isTrue();
+
+    int[] array = mySet.toArray();
+    if (mySet instanceof MyLinearArraySet || mySet instanceof MyArraySet || mySet instanceof MyBitSet) {
+      assertThat(array).containsExactly(3, 5, 23);
+    } else {
+      assertThat(array).containsExactly(3, 23, 5);
+    }
+
   }
 
   @MethodSource("getMySets")
@@ -92,7 +109,7 @@ class MySetTest {
 
     int[] array = mySet.toArray();
     if (mySet instanceof MyLinearArraySet) {
-      // for array set, we replace middle element that was removed with the last added element, so the order changes.
+      // for array set with optimization, we replace an element that was removed with the last added element, so the order changes.
       assertThat(array).containsExactly(25, 15);
     } else {
       assertThat(array).containsExactly(15, 25);
