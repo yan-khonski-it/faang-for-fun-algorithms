@@ -35,6 +35,9 @@ public class MainRunner {
       // Exclude the class that generates test data files.
       RandomArrayToFile.class.getName());
 
+  // Excluded all util classes.
+  private static final String UTILS_PACKAGE = "com.yk.faang.utils";
+
   // crude but workable pattern for: static void main() / String... args
   private static final Pattern MAIN_METHOD_PATTERN = Pattern.compile(
       "static\\s+void\\s+main\\s*[(]\\s*[)]"
@@ -60,7 +63,7 @@ public class MainRunner {
           .forEach(p -> {
             if (hasMainMethod(p)) {
               String fqcn = toClassName(sourceRoot, p);
-              if (!EXCLUDED_CLASSES.contains(fqcn)) {
+              if (!isExcluded(fqcn)) {
                 result.add(fqcn);
               }
             }
@@ -68,6 +71,10 @@ public class MainRunner {
     }
 
     return result;
+  }
+
+  private static boolean isExcluded(String fqcn) {
+    return fqcn == null || fqcn.isBlank() || fqcn.startsWith(UTILS_PACKAGE) || EXCLUDED_CLASSES.contains(fqcn);
   }
 
   private static boolean hasMainMethod(Path javaFile) {
@@ -80,10 +87,7 @@ public class MainRunner {
   }
 
   /**
-   * Convert something like:
-   *   src/main/java/com/yk/app/Foo.java
-   * into:
-   *   com.yk.app.Foo
+   * Convert something like: src/main/java/com/yk/app/Foo.java into: com.yk.app.Foo
    */
   private static String toClassName(Path sourceRoot, Path file) {
     Path relative = sourceRoot.relativize(file);
