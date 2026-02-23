@@ -25,8 +25,6 @@ class MySetTest {
   @MethodSource("getMySets")
   @ParameterizedTest
   public void testFixedSearchChain(MySet mySet) {
-/*
-
     // 1. Add 5.
     // Math.abs(5) % 10 = 5. It is placed at index 5.
     mySet.add(5);
@@ -55,7 +53,7 @@ class MySetTest {
     mySet.remove(15);
     assertThat(mySet.contains(35)).isTrue();
     assertThat(mySet.contains(45)).isFalse();
-*/
+
     mySet.clear();
     assertThat(mySet.add(3)).isTrue();
     assertThat(mySet.add(13)).isTrue();

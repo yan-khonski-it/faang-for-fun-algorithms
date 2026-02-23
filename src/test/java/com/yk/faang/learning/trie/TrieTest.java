@@ -62,7 +62,7 @@ class TrieTest {
 
   @ParameterizedTest(name = "contains(\"{0}\") == {1}")
   @MethodSource("containsCases")
-  void contains_works(String word, boolean expected) {
+  void testContains(String word, boolean expected) {
     for (Trie trie : getTries()) {
       trie.add("apple");
       trie.add("appl");
@@ -78,7 +78,7 @@ class TrieTest {
 
   @ParameterizedTest(name = "startsWith(\"{0}\") == {1}")
   @MethodSource("startsWithCases")
-  void startsWith_works(String prefix, boolean expected) {
+  void testStartsWith(String prefix, boolean expected) {
     for (Trie trie : getTries()) {
       trie.add("apple");
       trie.add("bath");
@@ -89,7 +89,7 @@ class TrieTest {
   }
 
   @Test
-  void adding_same_word_multiple_times_is_idempotent() {
+  void testAddingIsIdempotent() {
     for (Trie trie : getTries()) {
       trie.add("apple");
       trie.add("apple");
